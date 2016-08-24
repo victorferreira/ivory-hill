@@ -84,21 +84,13 @@ var view = {
 			}
 
 			todoLi.id = position;
-		// 	todoLi.appendChild(this.createCheckbox(position));
 			todoLi.textContent = todoTextWithcompletion;
 			todoLi.appendChild(this.createCheckbox(position));
-			todoLi.appendChild(this.createToggleButton());
-			todoLi.appendChild(this.createDeleteButton());
+			todoLi.appendChild(this.createButton('toggle'));
+			todoLi.appendChild(this.createButton('delete'));
 			todosUl.appendChild(todoLi);
 
 		}, this);
-	},
-	createDeleteButton: function () {
-		var deleteButton = document.createElement('button');
-		deleteButton.textContent = 'Delete';
-		deleteButton.className = 'deleteButton';
-		return deleteButton;
-
 	},
 	createCheckbox: function (position) {
 	  var checkbox = document.createElement('input');
@@ -107,11 +99,11 @@ var view = {
 	  checkbox.value = position;
 	  return checkbox;
 	},
-	createToggleButton: function () {
-	  var toggleButton = document.createElement('button');
-	  toggleButton.textContent = 'Toggle';
-	  toggleButton.className = 'toggleButton';
-	  return toggleButton;
+	createButton: function (buttonType) {
+	  var button = document.createElement('button');
+	  button.textContent = buttonType;
+	  button.className = buttonType + 'Button';
+	  return button;
 	},
 	setupEventListeners: function () {
 		var todosUl = document.querySelector('ul');
