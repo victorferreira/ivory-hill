@@ -85,18 +85,21 @@ var view = {
 
 			todoLi.id = position;
 			todoLi.textContent = todoTextWithcompletion;
-			todoLi.appendChild(this.createCheckbox(position));
-			todoLi.appendChild(this.createButton('toggle'));
+			todoLi.appendChild(this.createCheckbox(position, item.completed));
 			todoLi.appendChild(this.createButton('delete'));
 			todosUl.appendChild(todoLi);
 
 		}, this);
 	},
-	createCheckbox: function (position) {
+	createCheckbox: function (position, completed) {
 	  var checkbox = document.createElement('input');
 	  checkbox.type = 'checkbox';
 	  checkbox.id = 'checkbox';
 	  checkbox.value = position;
+	  
+	  if (completed) {
+	    checkbox.checked = "true";
+	  }
 	  return checkbox;
 	},
 	createButton: function (buttonType) {
@@ -111,8 +114,11 @@ var view = {
 			var elementClicked = event.target;
 			if (elementClicked.className === 'deleteButton') {
 				handler.deleteTodo(elementClicked.parentNode.id);
-			} else if (elementClicked.className === 'toggleButton') {
+			} else if (elementClicked.id === 'checkbox') {
+			  console.log(elementClicked);
 			  handler.toggleCompleted(elementClicked.parentNode.id);
+			  elementClicked.setAttribute("checked", "true");
+			  console.log(elementClicked);
 			}
 		});
 		
@@ -124,13 +130,6 @@ var view = {
         handler.addTodo();
       }
 		});
-		
-		// event listener for checkbox
-		var checkbox = document.getElementsByClassName('checkbox');
-		console.log(checkbox);
-		// checkbox.addEventListener('change', function (event) {
-		//   console.log(event);
-		// });
 	}
 };
 
