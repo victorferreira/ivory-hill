@@ -3,19 +3,19 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Simple Todo</title>
-</head>
-<body>
+	<link rel="stylesheet" href="https://code.getmdl.io/1.2.0/material.indigo-pink.min.css" />
+	<link rel="stylesheet" href="css/style.css">
+	</head>
+<body class="container">
 	<header class="main-header">
 	  <h1>simple<span>todo</span></h1>
-	  <h2>A simple to-do list developed with VanillaJS</h2>
 	  <h3>by Victor Ferreira</h3>
 	</header>
 
-	<button onclick="handler.toggleAll()">Toggle all</button>
+	<button class="mdl-button mdl-js-button mdl-button--raised" onclick="handler.toggleAll()">Toggle all</button><br><br><br>
 
 	<section class="app-insert">
-	  <p>Add Task</p><input id="addTodoTextInput" type="text" placeholder="Insert your task here...">
-	  <!-- <button onclick="handler.addTodo()">Add</button> -->
+	  <input class="mdl-textfield__input" id="addTodoTextInput" type="text" placeholder="Insert your task here...">
 	</section>
 
 	<!-- <section>
@@ -30,8 +30,8 @@
 </section> -->
 
 	<section class="app-list">
-	  <ul id="task-list"></ul>
+	  <ul class="demo-list-control mdl-list" id="task-list"></ul>
 	</section>
-	<script src="hello.js"></script>
+	<script src="js/app.js"></script>
 </body>
 </html>
