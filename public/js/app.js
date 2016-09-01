@@ -86,6 +86,11 @@ var view = {
 			todoLi.id = position;
 			todoLi.textContent = todoTextWithcompletion;
 			todoLi.classList.add("mdl-list__item");
+			if(item.completed){
+			  todoLi.classList.add("toggled");
+			} else {
+			  todoLi.classList.remove("toggled");
+			}
 			console.log(todoLi);
 			todoLi.appendChild(this.createCheckbox(position, item.completed));
 			todoLi.appendChild(this.createButton('delete'));
