@@ -76,16 +76,15 @@ var view = {
 		todoList.items.forEach(function (item, position) {
 			var todoLi = document.createElement('li');
 			var todoTextWithcompletion = '';
-
-			if (item.completed) {
-				todoTextWithcompletion = '(x) ' + item.description;
-			} else {
-				todoTextWithcompletion = '( ) ' + item.description;
-			}
-
+			
 			todoLi.id = position;
 			todoLi.textContent = todoTextWithcompletion;
 			todoLi.classList.add("mdl-list__item");
+			if(item.completed){
+			  todoLi.classList.add("toggled");
+			} else {
+			  todoLi.classList.remove("toggled");
+			}
 			console.log(todoLi);
 			todoLi.appendChild(this.createCheckbox(position, item.completed));
 			todoLi.appendChild(this.createButton('delete'));
@@ -128,9 +127,8 @@ var view = {
 		  var key = event.which || event.keyCode;
 		  if (key === 13) { // 13 is enter
         handler.addTodo();
-      }
+		  }
 		});
 	}
 };
-
 view.setupEventListeners();
