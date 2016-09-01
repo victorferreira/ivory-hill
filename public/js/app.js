@@ -85,6 +85,8 @@ var view = {
 
 			todoLi.id = position;
 			todoLi.textContent = todoTextWithcompletion;
+			todoLi.classList.add("mdl-list__item");
+			console.log(todoLi);
 			todoLi.appendChild(this.createCheckbox(position, item.completed));
 			todoLi.appendChild(this.createButton('delete'));
 			todosUl.appendChild(todoLi);
@@ -105,20 +107,18 @@ var view = {
 	createButton: function (buttonType) {
 	  var button = document.createElement('button');
 	  button.textContent = buttonType;
-	  button.className = buttonType + 'Button';
+	  button.id = buttonType + 'Button';
+	  button.className += " mdl-button mdl-js-button mdl-button--raised";
 	  return button;
 	},
 	setupEventListeners: function () {
 		var todosUl = document.querySelector('ul');
 		todosUl.addEventListener('click', function (event) {
 			var elementClicked = event.target;
-			if (elementClicked.className === 'deleteButton') {
+			if (elementClicked.id === 'deleteButton') {
 				handler.deleteTodo(elementClicked.parentNode.id);
 			} else if (elementClicked.id === 'checkbox') {
-			  console.log(elementClicked);
 			  handler.toggleCompleted(elementClicked.parentNode.id);
-			  elementClicked.setAttribute("checked", "true");
-			  console.log(elementClicked);
 			}
 		});
 		
