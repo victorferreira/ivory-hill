@@ -75,10 +75,12 @@ var view = {
 		todosUl.innerHTML = '';
 		todoList.items.forEach(function (item, position) {
 			var todoLi = document.createElement('li');
-			var todoTextWithcompletion = '';
+		// 	var todoTextWithcompletion = '';
 			
 			todoLi.id = position;
-			todoLi.textContent = todoTextWithcompletion;
+			var label = document.createElement('label');
+			label.innerHTML = item.description;
+		  todoLi.appendChild(label);
 			todoLi.classList.add("mdl-list__item");
 			if(item.completed){
 			  todoLi.classList.add("toggled");
