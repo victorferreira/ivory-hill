@@ -1,69 +1,37 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title>Welcome to Firebase Hosting</title>
-    <style media="screen">
-      body {
-        font-family: Roboto, Arial, sans-serif;
-        background: #ECEFF1;
-        color: rgba(0,0,0,0.87);
-      }
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Simple Todo</title>
+	<link rel="stylesheet" href="https://code.getmdl.io/1.2.0/material.indigo-pink.min.css" />
+	<link rel="stylesheet" href="css/style.css">
+	</head>
+<body class="container">
+	<header class="main-header">
+	  <h1>simple<span>todo</span></h1>
+	  <h3>by Victor Ferreira</h3>
+	</header>
 
-      a {
-        color: rgb(3,155,229);
-      }
+	<button class="mdl-button mdl-js-button mdl-button--raised" onclick="handler.toggleAll()">Toggle all</button><br><br><br>
 
-      #message {
-        max-width: 400px;
-        margin: 40px auto;
-        box-shadow: 0 1px 3px 0 rgba(0,0,0,0.2),0 1px 1px 0 rgba(0,0,0,0.14),0 2px 1px -1px rgba(0,0,0,0.12);
-        border-radius: 2px;
-        background: white;
-        padding: 16px 24px;
-      }
+	<section class="app-insert">
+	  <input class="mdl-textfield__input" id="addTodoTextInput" type="text" placeholder="Insert your task here...">
+	</section>
 
-      #message h1 {
-        font-size: 22px;
-        font-weight: 500;
-        text-align: center;
-        margin: 0 0 16px;
-      }
+	<!-- <section>
+	  <input type="number" id="changeTodoPositionInput">
+	  <input type="text" id="changeTodoTextInput">
+	  <button onclick="handler.changeTodo()">Change Todo</button>
+	</section> -->
+	
+<!--   <section>
+  <input type="number" id="toggleCompletedPositionInput">
+  <button onclick="handler.toggleCompleted()">toggle ToDo</button>
+</section> -->
 
-      #message p {
-        font-weight: 300;
-        line-height: 150%;
-      }
-
-      #message ul {
-        list-style: none;
-        margin: 16px 0 0;
-        padding: 0;
-        text-align: center;
-      }
-
-      #message li a {
-        display: inline-block;
-        padding: 8px;
-        text-transform: uppercase;
-        text-decoration: none;
-        font-weight: 500;
-        background: rgb(3,155,229);
-        color: white;
-        border: 1px solid rgb(3,155,229);
-        border-radius: 3px;
-        font-size: 14px;
-        box-shadow: 0 2px 5px 0 rgba(0,0,0,.26);
-      }
-    </style>
-  </head>
-  <body>
-    <div id="message">
-      <h1>Welcome to Firebase Hosting</h1>
-      <p>You're seeing this because you've successfully setup Firebase Hosting. Now it's time to go build something extraordinary!</p>
-      <ul>
-        <li><a target="_blank" href="https://firebase.google.com/docs/hosting/">Open Hosting Documentation</a></li>
-      </ul>
-    </div>
-  </body>
+	<section class="app-list">
+	  <ul class="demo-list-control mdl-list" id="task-list"></ul>
+	</section>
+	<script src="js/app.js"></script>
+</body>
 </html>
