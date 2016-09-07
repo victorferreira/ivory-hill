@@ -83,9 +83,10 @@ var view = {
 		  todoLi.appendChild(label);
 			todoLi.classList.add("mdl-list__item");
 			if(item.completed){
-			  todoLi.classList.add("toggled");
+			 // console.log(todoLi.childList);
+			  todoLi.childNodes[1].classList.add("toggled");
 			} else {
-			  todoLi.classList.remove("toggled");
+			  todoLi.childNodes[1].classList.remove("toggled");
 			}
 			todoLi.appendChild(this.createButton('delete'));
 			todosUl.appendChild(todoLi);
