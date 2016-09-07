@@ -80,7 +80,7 @@ var view = {
 			todoLi.appendChild(this.createCheckbox(position, item.completed));
 			var label = document.createElement('label');
 			label.innerHTML = item.description;
-		  todoLi.appendChild(label);
+			todoLi.appendChild(label);
 			todoLi.classList.add("mdl-list__item");
 			if(item.completed){
 			  todoLi.childNodes[1].classList.add("toggled");
