@@ -23,7 +23,7 @@
 	  <input type="text" id="changeTodoTextInput">
 	  <button onclick="handler.changeTodo()">Change Todo</button>
 	</section> -->
-	
+
 <!--   <section>
   <input type="number" id="toggleCompletedPositionInput">
   <button onclick="handler.toggleCompleted()">toggle ToDo</button>
@@ -33,5 +33,17 @@
 	  <ul class="demo-list-control mdl-list" id="task-list"></ul>
 	</section>
 	<script src="js/app.js"></script>
+
+<script src="https://www.gstatic.com/firebasejs/3.3.0/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyD1y59bi2QVyM_IohEZc8_pZrc9uBLKIxE",
+    authDomain: "ivory-hill.firebaseapp.com",
+    databaseURL: "https://ivory-hill.firebaseio.com",
+    storageBucket: "ivory-hill.appspot.com",
+  };
+  firebase.initializeApp(config);
+</script>
 </body>
 </html>
