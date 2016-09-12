@@ -8,11 +8,11 @@
 	<link rel="stylesheet" href="css/style.css">
 	</head>
 <body class="container">
-  
-  <pre id="object">
-    
-  </pre>
-  
+
+  <pre id="object"></pre>
+
+	<ul id="list"></ul>
+
 	<header class="main-header">
 	  <h1>simple<span>todo</span></h1>
 	  <h3>by Victor Ferreira</h3>
@@ -50,11 +50,11 @@
     storageBucket: "ivory-hill.appspot.com",
   };
   firebase.initializeApp(config);
-  
+
   var bigOne = document.getElementById('bigOne');
   var dbRef = firebase.database().ref().child('text');
   dbRef.on('value', snap => bigOne.innerText = snap.val());
 </script>
-    
+
 </body>
 </html>
