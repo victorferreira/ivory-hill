@@ -143,17 +143,12 @@
   firebase.initializeApp(config);
 
   // Get elements
-  const preObject = document.getElementById('object');
+  // const preObject = document.getElementById('object');
 	const ulList = document.getElementById('list')
 
   // Create Reference
   const dbRefObject = firebase.database().ref().child('object');
 	const dbRefList = dbRefObject.child('hobbies');
-
-  // Sync object changes
-  dbRefObject.on('value', snap => {
-    preObject.innerText = JSON.stringify(snap.val(), null, 3);
-  });
 
 	// Sync list changes
 	dbRefList.on('child_added', snap => {
@@ -171,5 +166,15 @@
 	dbRefList.on('child_removed', snap => {
 		const liToRemove = document.getElementById(snap.key);
 		liToRemove.remove();
+	});
+
+	// listener for enter key for insert task
+	var todoTextInput = document.getElementById('addTodoTextInput');
+	todoTextInput.addEventListener('keypress', function (event) {
+	  var key = event.which || event.keyCode;
+	  if (key === 13) { // 13 is enter
+			dbRefList.push(todoTextInput.value);
+			todoTextInput.value = '';
+	  }
 	});
 }());
