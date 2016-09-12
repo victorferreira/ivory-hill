@@ -20,7 +20,7 @@ var todoList = {
 		var totalTodos = this.items.length;
 		var completedTodos = 0;
 
-	
+
 		this.items.forEach(function (todo) {
 			if (todo.completed) {
 				completedTodos++;
@@ -75,7 +75,7 @@ var view = {
 		todosUl.innerHTML = '';
 		todoList.items.forEach(function (item, position) {
 			var todoLi = document.createElement('li');
-			
+
 			todoLi.id = position;
 			todoLi.appendChild(this.createCheckbox(position, item.completed));
 			var label = document.createElement('label');
@@ -97,7 +97,7 @@ var view = {
 	  checkbox.type = 'checkbox';
 	  checkbox.id = 'checkbox';
 	  checkbox.value = position;
-	  
+
 	  if (completed) {
 	    checkbox.checked = "true";
 	  }
@@ -120,7 +120,7 @@ var view = {
 			  handler.toggleCompleted(elementClicked.parentNode.id);
 			}
 		});
-		
+
 		// listener for enter key for insert task
 		var todoTextInput = document.getElementById('addTodoTextInput');
 		todoTextInput.addEventListener('keypress', function (event) {
@@ -132,3 +132,14 @@ var view = {
 	}
 };
 view.setupEventListeners();
+
+// (function(){
+// 	var config = {
+//     apiKey: "AIzaSyD1y59bi2QVyM_IohEZc8_pZrc9uBLKIxE",
+//     authDomain: "ivory-hill.firebaseapp.com",
+//     databaseURL: "https://ivory-hill.firebaseio.com",
+//     storageBucket: "ivory-hill.appspot.com",
+//   };
+//   firebase.initializeApp(config);
+// 	console.log('Victor Ferreira');
+// })();
