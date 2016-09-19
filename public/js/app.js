@@ -154,7 +154,13 @@
 	dbRefList.on('child_added', snap => {
 		const li = document.createElement('li');
 		li.id = snap.key;
-		li.innerText = snap.val();
+		var cb = document.createElement('input');
+    cb.type = 'checkbox';
+    cb.id   = 'checkbox';
+    li.appendChild(cb);
+    var label = document.createElement('label');
+    label.innerHTML = snap.val();
+    li.appendChild(label);
 		deleteButton = document.createElement('button');
 		deleteButton.id = "deleteButton";
 		deleteButton.innerText = "delete";
@@ -186,6 +192,12 @@
 	  var elementClicked = event.target;
     if (elementClicked.id === 'deleteButton') {
       dbRefList.child(elementClicked.parentNode.id).remove();
-    }
+    } else if (elementClicked.id === 'checkbox') {
+      if (!elementClicked.parentNode.classList.value.includes("toggled")) {
+        elementClicked.parentNode.classList.add("toggled");
+      } else {
+        elementClicked.parentNode.classList.remove("toggled");
+      }
+		}
 	});
 }());
