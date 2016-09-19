@@ -155,6 +155,10 @@
 		const li = document.createElement('li');
 		li.id = snap.key;
 		li.innerText = snap.val();
+		deleteButton = document.createElement('button');
+		deleteButton.id = "deleteButton";
+		deleteButton.innerText = "delete";
+		li.appendChild(deleteButton);
 		ulList.appendChild(li);
 	});
 
@@ -176,5 +180,12 @@
 			dbRefList.push(todoTextInput.value);
 			todoTextInput.value = '';
 	  }
+	});
+	var todosUl = document.querySelector('ul');
+	todosUl.addEventListener('click', function (event) {
+	  var elementClicked = event.target;
+    if (elementClicked.id === 'deleteButton') {
+      dbRefList.child(elementClicked.parentNode.id).remove();
+    }
 	});
 }());
