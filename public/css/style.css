@@ -6,3 +6,16 @@ body {
 .toggled{
   text-decoration: line-through;
 }
+
+#deleteButton {
+  color: red;
+}
+
+li {
+  font-size: 15px;
+}
+
+label {
+  padding-right: 30px;
+  padding-left: 10px;
+}
